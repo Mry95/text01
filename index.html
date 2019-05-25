@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <link rel="stylesheet" href="./fonts/iconfont.css">
+    <script src="./js/flexible.js"></script>
+
+    <link rel="stylesheet" href="./css/px2rem.scss">
+    <link rel="stylesheet" href="css/index.min.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <header></header>
+        <main>
+            <div class="swiper">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">banner 1</div>
+                        <div class="swiper-slide">banner 2</div>
+                        <div class="swiper-slide">banner 3</div>
+                    </div>
+                    <!-- 如果需要分页器 -->
+                    <!-- <div class="swiper-pagination"></div> -->
+
+                    <!-- 如果需要导航按钮 -->
+                    <!-- <div class="swiper-button-prev"></div> -->
+                    <!-- <div class="swiper-button-next"></div> -->
+
+                    <!-- 如果需要滚动条 -->
+                    <!-- <div class="swiper-scrollbar"></div> -->
+                </div>
+            </div>
+            <div class="list">
+                <dl>
+                    <dt style="background: #d70522"></dt>
+                    <dd>华人金融</dd>
+                </dl>
+                <dl>
+                    <dt style="background: #fca903"></dt>
+                    <dd>0元购</dd>
+                </dl>
+                <dl>
+                    <dt style="background: #29d275"></dt>
+                    <dd>安全保障</dd>
+                </dl>
+                <dl>
+                    <dt style="background: #7180f5"></dt>
+                    <dd>推荐好友</dd>
+                </dl>
+            </div>
+            <div class="msg">
+                <div class="msg-items">
+                    <div class="msg-items-left">
+                        <img src="./img/jin1.png" alt="">
+                    </div>
+                    <canvas id="vcs" width="276" height="198"></canvas>
+
+                </div>
+                <div class="msg-items">
+                    <div class="msg-items-left">
+                        <img src="./img/jin2.png" alt="">
+                    </div>
+                    <canvas id="vcs1" width="276" height="198"></canvas>
+                </div>
+                <div class="msg-items">
+                    <div class="msg-items-left">
+                        <img src="./img/jin2.png" alt="">
+                    </div>
+                    <canvas id="vcs2" width="276" height="198"></canvas>
+                </div>
+            </div>
+        </main>
+        <nav>
+            <dl>
+                <dt class="icon-iconhuidaoshouye"></dt>
+                <dd>首页</dd>
+            </dl>
+            <dl>
+                <dt class="icon-qianbao"></dt>
+                <dd>理财</dd>
+            </dl>
+            <dl>
+                <dt class="icon-gerenxinxi"></dt>
+                <dd>账户</dd>
+            </dl>
+            <dl>
+                <dt class="icon-gengduo"></dt>
+                <dd>更多</dd>
+            </dl>
+        </nav>
+    </div>
+    <script src="./js/swiper.js"></script>
+    <script>
+        var mySwiper = new Swiper('.swiper-container', {
+            // direction: 'vertical', // 垂直切换选项
+            loop: true, // 循环模式选项
+
+            // 如果需要分页器
+            // pagination: {
+            //     el: '.swiper-pagination',
+            // },
+
+            // 如果需要前进后退按钮
+            // navigation: {
+            //     nextEl: '.swiper-button-next',
+            //     prevEl: '.swiper-button-prev',
+            // },
+
+            // 如果需要滚动条
+            // scrollbar: {
+            //     el: '.swiper-scrollbar',
+            // },
+        })
+    </script>
+    <script>
+        stroke('vcs', function(arc) {
+            arc(0, 0, 80, 0, 360, '#ccc');
+            arc(0, 0, 80, 0, 270, 'red', 0);
+        });
+        stroke('vcs1', function(arc) {
+            arc(0, 0, 80, 0, 360, '#ccc');
+            arc(0, 0, 80, 0, 180, 'red', 0);
+        });
+        stroke('vcs2', function(arc) {
+            arc(0, 0, 80, 0, 360, '#ccc');
+            arc(0, 0, 80, 0, 160, 'red', 0);
+        })
+
+
+
+
+
+
+
+
+
+
+        function stroke(ele, fn) {
+
+            var cvs = document.getElementById(ele);
+            var context = cvs.getContext('2d');
+            context.translate(150, 100);
+            arc(0, 0, 80, 0, 360, '#ccc');
+            arc(0, 0, 80, 0, 270, 'red', -90);
+            fn(arc);
+
+            function arc(x, y, r, s, e, c, b) {
+                context.beginPath();
+                context.strokeStyle = c;
+                context.lineWidth = 10;
+                if (b) {
+                    context.rotate(Math.PI / 180 * b);
+                }
+                context.arc(x, y, r, Math.PI / 180 * s, Math.PI / 180 * e);
+                context.stroke();
+
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+@import "px2rem.scss";
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'iconfont';
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+@mixin init($w, $h, $bgc:transparent) {
+    width: $w;
+    height: $h;
+    background: $bgc;
+}
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+    @include init(rem(375px), 100%);
+}
+
+header {
+    @include init(rem(375px), rem(61px), #e23c3e);
+    border-bottom: rem(1px) solid #b21d30;
+}
+
+main {
+    background: #f1f0f5;
+    flex: 1;
+    overflow-y: auto;
+    .swiper {
+        @include init(rem(375px), rem(147px), #d31f38);
+        border-bottom: rem(1px) solid #e68e9c;
+        .swiper-container {
+            @include init(100%, 100%);
+            .swiper-wrapper {
+                div {
+                    text-align: center;
+                    line-height: rem(147px);
+                    font-size: rem(30px);
+                    color: #fff;
+                }
+            }
+        }
+    }
+    .list {
+        @include init(rem(375px), rem(90px), #fff);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        dl {
+            @include init(rem(50px), rem(75px));
+            dt {
+                @include init(rem(50px), rem(50px), red);
+                border-radius: 50px;
+                overflow: hidden;
+            }
+            dd {
+                line-height: rem(30px);
+                text-align: center;
+            }
+        }
+    }
+    .msg {
+        margin-top: rem(10px);
+        margin-bottom: rem(10px);
+        .msg-items {
+            display: flex;
+            @include init(rem(375px), rem(100px), #fff);
+            border-top: rem(1px) solid #ccc;
+            .msg-items-left {
+                @include init(rem(237px), rem(99px));
+                img {
+                    @include init(100%, 100%)
+                }
+            }
+            .msg-items-right {
+                flex: 1;
+                background: #c0c;
+            }
+        }
+    }
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    @include init(rem(375px), rem(50px), #fff);
+    dl {
+        @include init(rem(26px), rem(40px));
+        dt {
+            @include init(rem(26px), rem(26px));
+            text-align: center;
+            line-height: rem(26px);
+        }
+        dd {
+            line-height: rem(14px);
+            text-align: center;
+        }
+        .icon-iconhuidaoshouye,
+        .icon-qianbao,
+        .icon-gerenxinxi,
+        .icon-gengduo {
+            font-size: rem(26px);
+        }
+    }
+}
